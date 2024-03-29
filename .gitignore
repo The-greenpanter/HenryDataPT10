@@ -1,6 +1,6 @@
 .DS_Store
 .venv
 .vscode
-nombre_del_entorno_virtual
+Henry_venv
 Pipfile
 Pipfile.lock

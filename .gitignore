@@ -1,6 +1,6 @@
 .DS_Store
 .venv
 .vscode
-Henry_venv
+Henry_env
 Pipfile
 Pipfile.lock

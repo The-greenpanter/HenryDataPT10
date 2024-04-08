@@ -1,4 +1,4 @@
-import Homework05Pila as pila
+import Homework05Cola as cola
 import random
 import os
 import sys
@@ -17,15 +17,19 @@ def sumatoria(pila):
 
     
 baraja:int
-mano = pila.pila()
+mano = cola.cola()
     
 limpiar_pantalla()
 menu:str = f'''            NO te pases de 50
 
-1.-Pedir numeros
-2.-Revisar mi mano
-3.-Terminar chao
+1.-Llenar la jarra de 3 litros
+2.-Llenar la jarra de 5 litros
+3.-Vaciar la jarra de 3 litros
+4.-Vaciar la jarra de 5 litros
+5.-Verter el contenido de la jarra de 3 litros en la de 5 litros
+6.-Verter el contenido de la jarra de 5 litros en la de 3 litros
 
+7.- Exit
 '''
 def limpiar_pantalla() -> None:
     '''
@@ -37,7 +41,7 @@ opcion:int = 0
 while True:
     print(menu)
     opcion = input("Selecione una opcion \n")
-    if opcion in ['1','2','3']:
+    if opcion in ['1','2','3','4','5','6','7']:
         if opcion == "3":
             print("\n Chao \n \n ")
             sys.exit(0)

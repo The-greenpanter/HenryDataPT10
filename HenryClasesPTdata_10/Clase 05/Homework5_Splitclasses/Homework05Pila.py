@@ -1,4 +1,4 @@
-class Baraja50 ():
+class pila ():
     
     # Constructor
     def __init__ (self):
@@ -21,3 +21,7 @@ class Baraja50 ():
     #Size de la pila
     def size(self):
         return self.size()
+    def __copy__(self):
+        newpila = self.__class__()
+        newpila._list = self._list.copy()
+        return newpila

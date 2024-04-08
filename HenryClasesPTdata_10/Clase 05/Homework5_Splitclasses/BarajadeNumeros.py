@@ -16,7 +16,7 @@ def sumatoria(pila):
     return suma
 
     
-baraja = random.randint(0,20)
+baraja:int
 mano = pila.pila()
     
 limpiar_pantalla()
@@ -36,16 +36,20 @@ limpiar_pantalla()
 opcion:int = 0
 while True:
     print(menu)
-    opcion = input("Selecione una opcion")
+    opcion = input("Selecione una opcion \n")
     if opcion in ['1','2','3']:
         if opcion == "3":
             print("Chao")
             sys.exit(0)
         elif opcion == "2":
-            print(sumatoria(mano))
+            print("Tu mano esta en", sumatoria(mano), "puntos, estas a", 50 - sumatoria(mano),"de pasarte")
         elif opcion == "1":
+            baraja = random.randint(0,20)
             print("Hola aqui tu carta", baraja)
             mano.push(baraja)
+            if (sumatoria(mano) >=50 ):
+                print("Te pasaste llevas", sumatoria(mano), "total de puntos")
+                sys.exit()
     else:
         print("Opción inválida. Por favor elige una opción válida.")
         input("Presiona Enter para continuar...")

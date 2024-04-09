@@ -20,7 +20,11 @@ class cola():
     #Para saber el numero de elementos en la cola
     def size(self):
         return len(self.__list)
+    
+
     def __copy__(self):
         newcola = self.__class__()
         newcola._list = self._list.copy()
         return newcola
+        """Esta es una funcion para poder copiarl la pila a una nueva pila
+        """

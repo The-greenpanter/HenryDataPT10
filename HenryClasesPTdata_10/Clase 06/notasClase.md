@@ -14,3 +14,8 @@ Esto indica que si el texto indicado tiene comillas tambien van a verse incluida
 
 vamos a ver que podemos usar operaciones en los parametros para que se haga una operacion antes del volverlo parametro
 ![alt text](image-1.png)
+
+
+Guardar los datos con idex = False, es informacion redundate
+
+

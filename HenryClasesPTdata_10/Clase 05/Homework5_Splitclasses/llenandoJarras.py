@@ -15,12 +15,34 @@ def sumatoria(pila):
         suma += temp_pila.pop()  # Agrega el elemento sacado de la pila a la suma
     return suma
 
-    
+
+estado_de_las_jarra3:str = '''
+             Jarra de 3 litros          
+            +-----------------+       
+            |                 |       
+            |                 |       
+            |                 |       
+            +-----------------+       
+                                      
+                                      
+'''
+estado_de_las_jarra5:str = '''
+                Jarra de 5 litros
+             +-------------------+
+             |                   |
+             |                   |
+             |                   |
+             |                   |
+             |                   |
+             +-------------------+
+'''   
 baraja:int
 mano = cola.cola()
     
 limpiar_pantalla()
-menu:str = f'''            NO te pases de 50
+menu:str = f'''            Las jarras ''', estado_de_las_jarra3, estado_de_las_jarra5, '''
+
+           
 
 1.-Llenar la jarra de 3 litros
 2.-Llenar la jarra de 5 litros
@@ -42,20 +64,61 @@ while True:
     print(menu)
     opcion = input("Selecione una opcion \n")
     if opcion in ['1','2','3','4','5','6','7']:
-        if opcion == "3":
-            print("\n Chao \n \n ")
-            sys.exit(0)
+        if opcion == "1":
+            limpiar_pantalla()
+            estado_de_las_jarr3= ''' 
+             Jarra de 3 litros        
+            +-----------------+       
+            |+++++++++++++++++|       
+            |+++++++++++++++++|       
+            |+++++++++++++++++|       
+            +-----------------+       
+ '''
+                                      
+            print("Llenaste la jarra de 3 litros",estado_de_las_jarra3,estado_de_las_jarra5)
+            # sys.exit(0)
         elif opcion == "2":
             limpiar_pantalla()
-            print("\n Tu mano esta en", sumatoria(mano), "puntos, estas a", 50 - sumatoria(mano),"de pasarte \n")
-        elif opcion == "1":
-            baraja = random.randint(0,20)
+            estado_de_las_jarra5 = '''
+            Jarra de 5 litros
+           +-------------------+
+           |+++++++++++++++++++|
+           |+++++++++++++++++++|
+           |+++++++++++++++++++|
+           |+++++++++++++++++++|
+           |+++++++++++++++++++|
+           +-------------------+
+           '''
+            print("Llenaste la jarra de 5 litros", estado_de_las_jarra3, estado_de_las_jarra5)
+        elif opcion == "3":
+            stado_de_las_jarra3 = '''
+             Jarra de 3 litros          
+            +-----------------+       
+            |                 |       
+            |                 |       
+            |                 |       
+            +-----------------+       
+                                      
+                                      
+'''
             limpiar_pantalla()
-            print("\n Hola aqui tu carta", baraja ,"\n")
-            mano.push(baraja)
+            print("Vaciaste la jarra de 3 litros", estado_de_las_jarra3, estado_de_las_jarra5)
+        elif opcion == "4":
+            estado_de_las_jarra5 = '''
+                Jarra de 5 litros
+             +-------------------+
+             |                   |
+             |                   |
+             |                   |
+             |                   |
+             |                   |
+             +-------------------+
+'''   
+            limpiar_pantalla()
+            print("Vaciaste la jarra de 3 litros", estado_de_las_jarra3, estado_de_las_jarra5)
             if (sumatoria(mano) >=50 ):
                 print("\n Te pasaste llevas", sumatoria(mano), "total de puntos \n")
-                sys.exit()
+                
     else:
         print("\n Opción inválida. Por favor elige una opción válida. \n")
         input("\n Presiona Enter para continuar... \n")

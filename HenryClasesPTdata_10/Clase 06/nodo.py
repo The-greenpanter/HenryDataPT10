@@ -3,6 +3,9 @@ class node:
     def _init__(self,val): 
         self.data = val 
         self.next = None
+    def isEmpty(self):
+        """Check if the list is empty"""
+        return self.head is None    
     #Metodo get
     def getData(self): 
         return self.data

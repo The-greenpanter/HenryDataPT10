@@ -1,11 +1,8 @@
 class node:
     #Constructor
-    def _init__(self,val): 
-        self.data = val 
+    def __init__(self,data): 
+        self.data = data 
         self.next = None
-    def isEmpty(self):
-        """Check if the list is empty"""
-        return self.head is None    
     #Metodo get
     def getData(self): 
         return self.data
@@ -21,11 +18,10 @@ class node:
     # Inserta un nuevo dato despues de {Un dato dado}
     def insertAfter(self, new_node):
         new_node.next = self.next
+        new_node.previous = self
         self.next = new_node
-     #Inser a next data with direction
-    def insertAfter(self, new_node):
-        new_node.next = self.next
-        self.next = new_node    
+        if new_node.next:
+            new_node.next.previous = new_node
     # Busca un dato
     def search(self, value):
         current_node = self
@@ -40,3 +36,4 @@ class node:
             self.next = self.next.next  # Skip over the next node
         else:  # If tail node
             raise Exception("Cannot remove the tail node in a singly linked list.")
+    

@@ -1,11 +1,12 @@
+import HenryClasesPTdata_10.Clase06.node as node
 class nodeDoublyLinked:
     '''
     Descripcion: Clase nodo doble enlazada 
     que permite buscar antes y despues los datos.
     '''
     
-    def __init__(self, cargo):
-        self.cargo = cargo
+    def __init__(self, dato):
+        self.dato = dato
         self.next = None
         self.previous = None
     #Metodo get
@@ -47,9 +48,6 @@ class nodeDoublyLinked:
         if new_node.next:
             new_node.next.previous = new_node
     #Inser a prevouos value
-    def insertAfter(self, new_node):
-        new_node.previous = self.previous
-        self.previous = new_node
     def remove(self):
         if self.next:  # Not the tail node
             self.next.previous = self.previous  # Update previous pointer of the next node

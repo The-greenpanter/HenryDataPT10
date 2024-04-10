@@ -1,4 +1,4 @@
-import nodo as node
+import HenryClasesPTdata_10.Clase06.node as node
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -67,7 +67,7 @@ class LinkedList:
         if position is 0:
             self.add(item)
         else:
-            new_node = Node(item)
+            new_node = node(item)
             while pos < position:
                 pos += 1
                 previous = current
@@ -131,7 +131,7 @@ class LinkedList:
             previous = current
             current = current.getNext()
             pos += 1
-        new_node = Node(item)
+        new_node = node(item)
         if previous is None:
             new_node.setNext(current)
             self.head = new_node

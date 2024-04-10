@@ -1,8 +1,13 @@
-class Node:
-    #Constructor
-    def _init__(self,val): 
-        self.data = val 
+class nodeDoublyLinked:
+    '''
+    Descripcion: Clase nodo doble enlazada 
+    que permite buscar antes y despues los datos.
+    '''
+    
+    def __init__(self, cargo):
+        self.cargo = cargo
         self.next = None
+        self.previous = None
     #Metodo get
     def getData(self): 
         return self.data
@@ -19,10 +24,6 @@ class Node:
     def insertAfter(self, new_node):
         new_node.next = self.next
         self.next = new_node
-     #Inser a next data with direction
-    def insertAfter(self, new_node):
-        new_node.next = self.next
-        self.next = new_node    
     # Busca un dato
     def search(self, value):
         current_node = self
@@ -31,3 +32,16 @@ class Node:
                 return current_node
             current_node = current_node.next
         return None  # Value not found
+    #Dato anterior 
+    def hasPrevious(self):
+        return self.previous is not None
+    #Optine el dato anterior
+    def getPrevious(self):
+        return self.previous
+    #Configura la direcion previa de un dato
+    def setPrevious(self, new_node):
+        self.previous = new_node
+    #Inser a next data with direction
+    def insertAfter(self, new_node):
+        new_node.next = self.next
+        self.next = new_node

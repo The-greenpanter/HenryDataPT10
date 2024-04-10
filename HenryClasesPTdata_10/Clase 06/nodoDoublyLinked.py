@@ -56,3 +56,26 @@ class nodeDoublyLinked:
             self.previous.next = self.next  # Update next pointer of the previous node
         else:  # Tail node
             self.previous.next = None  # Set previous node's next to None
+            
+        '''
+        Desafíos al eliminar el nodo final:
+
+Localización del predecesor:
+
+Para eliminar el nodo final, 
+primero necesitarías encontrar su predecesor.
+En una lista enlazada simple, 
+esto implica iterar a través de la lista desde la
+cabeza hasta que encuentres el segundo nodo desde el final. 
+Esto puede ser consumidor de tiempo, especialmente para listas grandes.
+Actualización del puntero:
+
+Una vez que encuentres el predecesor, 
+necesitarías establecer su puntero siguiente 
+como None para desvincular el nodo final.
+Sin embargo, las listas enlazadas simples 
+carecen de punteros directos al final desde 
+cualquier otro nodo, lo que hace imposible 
+actualizar el puntero del predecesor sin primero 
+recorrer la lista.
+        '''

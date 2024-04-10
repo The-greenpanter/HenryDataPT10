@@ -21,9 +21,7 @@ class nodeDoublyLinked:
     def setNext(self, new_node): 
         self.next = nodeDoublyLinked (new_node)
     # Inserta un nuevo dato despues de {Un dato dado}
-    def insertAfter(self, new_node):
-        new_node.next = self.next
-        self.next = new_node
+  
     # Busca un dato
     def search(self, value):
         current_node = self
@@ -41,11 +39,20 @@ class nodeDoublyLinked:
     #Configura la direcion previa de un dato
     def setPrevious(self, new_node):
         self.previous = new_node
-    #Inser a next data with direction
-    def insertAfter(self, new_node):
+    #Inserta un nuevo dato despues de otro
+    def insert_after(self, new_node):
         new_node.next = self.next
+        new_node.previous = self
         self.next = new_node
+        if new_node.next:
+            new_node.next.previous = new_node
     #Inser a prevouos value
     def insertAfter(self, new_node):
         new_node.previous = self.previous
         self.previous = new_node
+    def remove(self):
+        if self.next:  # Not the tail node
+            self.next.previous = self.previous  # Update previous pointer of the next node
+            self.previous.next = self.next  # Update next pointer of the previous node
+        else:  # Tail node
+            self.previous.next = None  # Set previous node's next to None

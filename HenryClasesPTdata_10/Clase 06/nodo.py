@@ -31,3 +31,9 @@ class node:
                 return current_node
             current_node = current_node.next
         return None  # Value not found
+    def remove(self):
+        if self.next:  # Check if not the tail node
+            self.new = self.next.value  # Copy data from next node
+            self.next = self.next.next  # Skip over the next node
+        else:  # If tail node
+            raise Exception("Cannot remove the tail node in a singly linked list.")

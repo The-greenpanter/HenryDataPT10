@@ -1,3 +1,4 @@
+import nodo as node
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -8,7 +9,7 @@ class LinkedList:
 
     def add(self, item):
         """Add the item to the list"""
-        new_node = Node(item)
+        new_node = node(item)
         new_node.setNext(self.head)
         self.head = new_node
 
@@ -50,7 +51,7 @@ class LinkedList:
                 previous.setNext(current.getNext())
         else:
             raise ValueError
-            print 'Value not found.'
+            print('Value not found.')
 
     def insert(self, position, item):
         """
@@ -59,7 +60,7 @@ class LinkedList:
         """
         if position > self.size() - 1:
             raise IndexError
-            print "Index out of bounds."
+            print("Index out of bounds.")
         current = self.head
         previous = None
         pos = 0
@@ -101,7 +102,7 @@ class LinkedList:
         If index is out of bounds, raise IndexError
         """
         if position > self.size():
-            print 'Index out of bounds'
+            print('Index out of bounds')
             raise IndexError
             
         current = self.head
@@ -117,7 +118,7 @@ class LinkedList:
                 pos += 1
                 ret = current.getData()
             previous.setNext(current.getNext())
-        print ret
+        print(ret)
         return ret
 
     def append(self, item):
@@ -141,5 +142,5 @@ class LinkedList:
         """Print the list"""
         current = self.head
         while current is not None:
-            print current.getData()
+            print(current.getData())
             current = current.getNext()

@@ -19,7 +19,7 @@ class nodeDoublyLinked:
         self.data = new
     # Nuevo nodo
     def setNext(self, new_node): 
-        self.next = Node (new_node)
+        self.next = nodeDoublyLinked (new_node)
     # Inserta un nuevo dato despues de {Un dato dado}
     def insertAfter(self, new_node):
         new_node.next = self.next
@@ -45,3 +45,7 @@ class nodeDoublyLinked:
     def insertAfter(self, new_node):
         new_node.next = self.next
         self.next = new_node
+    #Inser a prevouos value
+    def insertAfter(self, new_node):
+        new_node.previous = self.previous
+        self.previous = new_node

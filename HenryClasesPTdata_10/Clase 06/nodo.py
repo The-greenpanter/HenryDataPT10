@@ -1,4 +1,4 @@
-class Node:
+class node:
     #Constructor
     def _init__(self,val): 
         self.data = val 
@@ -14,7 +14,7 @@ class Node:
         self.data = new
     # Nuevo nodo
     def setNext(self, new_node): 
-        self.next = Node (new_node)
+        self.next = node (new_node)
     # Inserta un nuevo dato despues de {Un dato dado}
     def insertAfter(self, new_node):
         new_node.next = self.next

@@ -1,79 +1,73 @@
-import HenryClasesPTdata_10.Clase06.node as node
-class nodeDoublyLinked:
-    '''
-    Descripcion: Clase nodo doble enlazada 
-    que permite buscar antes y despues los datos.
-    '''
-    
-    def __init__(self, dato):
-        self.dato = dato
+class DoubleListNode:
+    def __init__(self, data):
+        self.data = data
+        self.prev = None
         self.next = None
-        self.previous = None
-    #Metodo get
-    def getData(self): 
+    def getData(self):
         return self.data
-    #Next item
-    def getNext(self): 
+
+    def getNext(self):
         return self.next
-    #Metodo set
-    def setData(self,new): 
-        self.data = new
-    # Nuevo nodo
-    def setNext(self, new_node): 
-        self.next = nodeDoublyLinked (new_node)
-    # Inserta un nuevo dato despues de {Un dato dado}
-  
-    # Busca un dato
-    def search(self, value):
-        current_node = self
-        while current_node:
-            if current_node.data == value:
-                return current_node
-            current_node = current_node.next
-        return None  # Value not found
-    #Dato anterior 
-    def hasPrevious(self):
-        return self.previous is not None
-    #Optine el dato anterior
-    def getPrevious(self):
-        return self.previous
-    #Configura la direcion previa de un dato
-    def setPrevious(self, new_node):
-        self.previous = new_node
-    #Inserta un nuevo dato despues de otro
-    def insert_after(self, new_node):
-        new_node.next = self.next
-        new_node.previous = self
-        self.next = new_node
-        if new_node.next:
-            new_node.next.previous = new_node
-    #Inser a prevouos value
-    def remove(self):
-        if self.next:  # Not the tail node
-            self.next.previous = self.previous  # Update previous pointer of the next node
-            self.previous.next = self.next  # Update next pointer of the previous node
-        else:  # Tail node
-            self.previous.next = None  # Set previous node's next to None
-            
-        '''
-        Desafíos al eliminar el nodo final:
 
-Localización del predecesor:
+    def setData(self, val):
+        self.data = val
 
-Para eliminar el nodo final, 
-primero necesitarías encontrar su predecesor.
-En una lista enlazada simple, 
-esto implica iterar a través de la lista desde la
-cabeza hasta que encuentres el segundo nodo desde el final. 
-Esto puede ser consumidor de tiempo, especialmente para listas grandes.
-Actualización del puntero:
+    def setNext(self, val):
+        self.next = val
 
-Una vez que encuentres el predecesor, 
-necesitarías establecer su puntero siguiente 
-como None para desvincular el nodo final.
-Sin embargo, las listas enlazadas simples 
-carecen de punteros directos al final desde 
-cualquier otro nodo, lo que hace imposible 
-actualizar el puntero del predecesor sin primero 
-recorrer la lista.
-        '''
+class DoublyLinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+
+    def is_empty(self):
+        return self.head is None
+
+    def append(self, data):
+        new_node = DoubleListNode(data)
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            self.tail.next = new_node
+            new_node.prev = self.tail
+            self.tail = new_node
+
+    def prepend(self, data):
+        new_node = DoubleListNode(data)
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            new_node.next = self.head
+            self.head.prev = new_node
+            self.head = new_node
+
+    def delete(self, data):
+        current = self.head
+        while current:
+            if current.data == data:
+                if current.prev:
+                    current.prev.next = current.next
+                else:
+                    self.head = current.next
+                if current.next:
+                    current.next.prev = current.prev
+                else:
+                    self.tail = current.prev
+                return
+            current = current.next
+
+    def display_forward(self):
+        current = self.head
+        while current:
+            print(current.data, end=" -> ")
+            current = current.next
+        print("None")
+
+    def display_backward(self):
+        current = self.tail
+        while current:
+            print(current.data, end=" -> ")
+            current = current.prev
+        print("None")

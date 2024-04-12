@@ -1,39 +1,57 @@
-class node:
-    #Constructor
-    def __init__(self,data): 
-        self.data = data 
+class ListNode:
+    def __init__(self, data):
+        self.data = data
         self.next = None
-    #Metodo get
-    def getData(self): 
+    def getData(self):
         return self.data
-    #Next item
-    def getNext(self): 
+
+    def getNext(self):
         return self.next
-    #Metodo set
-    def setData(self,new): 
-        self.data = new
-    # Nuevo nodo
-    def setNext(self, new_node): 
-        self.next = node (new_node)
-    # Inserta un nuevo dato despues de {Un dato dado}
-    def insertAfter(self, new_node):
-        new_node.next = self.next
-        new_node.previous = self
-        self.next = new_node
-        if new_node.next:
-            new_node.next.previous = new_node
-    # Busca un dato
-    def search(self, value):
-        current_node = self
-        while current_node:
-            if current_node.data == value:
-                return current_node
-            current_node = current_node.next
-        return None  # Value not found
-    def remove(self):
-        if self.next:  # Check if not the tail node
-            self.new = self.next.data  # Copy data from next node
-            self.next = self.next.next  # Skip over the next node
-        else:  # If tail node
-            raise Exception("Cannot remove the tail node in a singly linked list.")
-    
+
+    def setData(self, val):
+        self.data = val
+
+    def setNext(self, val):
+        self.next = val
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def is_empty(self):
+        return self.head is None
+
+    def append(self, data):
+        new_node = ListNode(data)
+        if self.head is None:
+            self.head = new_node
+            return
+        current = self.head
+        while current.next:
+            current = current.next
+        current.next = new_node
+
+    def prepend(self, data):
+        new_node = ListNode(data)
+        new_node.next = self.head
+        self.head = new_node
+
+    def delete(self, data):
+        if self.head is None:
+            return
+        if self.head.data == data:
+            self.head = self.head.next
+            return
+        current = self.head
+        while current.next:
+            if current.next.data == data:
+                current.next = current.next.next
+                return
+            current = current.next
+
+    def display(self):
+        current = self.head
+        while current:
+            print(current.data, end=" -> ")
+            current = current.next
+        print("None")

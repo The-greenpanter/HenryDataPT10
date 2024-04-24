@@ -1,7 +1,7 @@
 .DS_Store
 .venv
 .vscode
-Henry_env
+Henry_venv
 Pipfile
 Pipfile.lock
 sup_11_04

@@ -54,12 +54,3 @@ CREATE TABLE instructor (
 	fechaIncorporacion DATE
 );
 ```
-
-
-
-
-
-
-
-![alt text](image.png)
-

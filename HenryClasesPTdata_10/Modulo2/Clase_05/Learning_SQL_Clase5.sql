@@ -9,38 +9,39 @@ USE Henry;
 
 -- Creo las tablas
 -- Primer componente de la BD
-CREATE TABLE Carrera (
-    idCarrera INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    nombre_carrera VARCHAR(50)
+
+CREATE TABLE carrera (
+	idCarrera INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR (50) NOT NULL
+    );
+
+CREATE TABLE instructor (
+	idInstructor INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	cedulaIdentidad INT NOT NULL UNIQUE,
+	nombre VARCHAR(40) NOT NULL,
+	apellido VARCHAR(40) NOT NULL,
+	fechaNacimiento DATE NOT NULL,
+	fechaIncorporacion DATE
 );
 
-CREATE TABLE Instructores (
-    ID_instructor INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    cedula_identidad INT NOT NULL UNIQUE,
-    nombre VARCHAR(20),
-    apellido VARCHAR(20),
-    fecha_nacimiento DATE,
-    fecha_incorporacion DATE
+CREATE TABLE cohorte(
+	idCohorte INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	codigo INT NOT NULL UNIQUE,
+	idCarrera INT NOT NULL UNIQUE,
+	idInstructor INT NOT NULL UNIQUE,
+	fechaInicio DATE,
+	fechaFinalizacion DATE,
+	FOREIGN KEY (idCarrera) REFERENCES carrera(idCarrera),
+	FOREIGN KEY (idInstructor) REFERENCES instructor(idInstructor)
 );
 
-CREATE TABLE Cohorte (
-    ID_cohorte INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    codigo INT NOT NULL UNIQUE,
-    fecha_Inicio DATE,
-    fecha_Finalizacion DATE,
-    idCarrera INT NOT NULL, -- Cambio aquí
-    FOREIGN KEY (idCarrera) REFERENCES Carrera (idCarrera), -- Cambio aquí
-    FOREIGN KEY (ID_instructor) REFERENCES Instructores (ID_instructor)
-);
-
-CREATE TABLE Alumnos(
-    ID_alumnos INT NOT NULL AUTO_INCREMENT,
-    cedula_identindad INT NOT NULL UNIQUE,
-    nombre VARCHAR(20),
-    apellido VARCHAR(20),
-    fecha_nacimiento DATE,
-    fecha_ingreso DATE,
-    ID_cohorte INT NOT NULL,
-    FOREIGN KEY (ID_cohorte) REFERENCES Cohorte (ID_cohorte),
-    PRIMARY KEY (cedula_identindad)
+CREATE TABLE alumno (
+	idAlumno INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    cedulaIdentidad INT NOT NULL,
+    nombre VARCHAR (40) NOT NULL,
+    apellido VARCHAR (40) NOT NULL,
+   	fechaNacimiento DATE NOT NULL,
+	fechaIngreso DATE,
+    idCohorte INT,
+    FOREIGN KEY (idCohorte) REFERENCES cohorte(idCohorte)
 );

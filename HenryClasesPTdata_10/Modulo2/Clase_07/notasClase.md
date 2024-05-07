@@ -4,6 +4,3 @@ Para poder medir el desempeño y cumplir con las metas de la empresa o la campa�
 
 Por ejemplo para dirigir una campaña de ventas direccionada a ciertos clientes, si dichos clientes estan en nuestra base de datos y queremos filtrarlos para mandar dicha campaña orientada podemos usar filtros y agrupaciones como funciones de SQL. Ejemplo `Having`.
 
-Central African Republic
-Fragile and conflict affected situations
-Pacific island small states

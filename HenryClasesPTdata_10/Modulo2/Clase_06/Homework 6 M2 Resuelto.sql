@@ -1,4 +1,4 @@
-USE henry;
+USE Henry;
 
 #Se insertan valores en la tabla carreras.
 
@@ -11,8 +11,8 @@ SELECT * FROM carrera;
 
 #Se insertan valores en la tabla instructores.
 
-INSERT instructor (cedulaIdentidad, nombre, apellido, fechaNacimiento, fechaIncorporacion) 
-VALUES (25456879,'Antonio','Barrios','1981-7-9','2019-11-8');
+-- INSERT instructor (cedulaIdentidad, nombre, apellido, fechaNacimiento, fechaIncorporacion) 
+-- VALUES (25456879,'Antonio','Barrios','1981-7-9','2019-11-8');
 
 INSERT instructor (cedulaIdentidad, nombre, apellido, fechaNacimiento, fechaIncorporacion) 
 VALUES (28456321,'Lucia','Fernandez','1992-5-25','2019-11-8'),

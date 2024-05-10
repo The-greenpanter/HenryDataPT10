@@ -11,17 +11,25 @@ SELECT * FROM carrera;
 
 #Se insertan valores en la tabla instructores.
 
--- INSERT instructor (cedulaIdentidad, nombre, apellido, fechaNacimiento, fechaIncorporacion) 
--- VALUES (25456879,'Antonio','Barrios','1981-7-9','2019-11-8');
-
 INSERT instructor (cedulaIdentidad, nombre, apellido, fechaNacimiento, fechaIncorporacion) 
-VALUES (28456321,'Lucia','Fernandez','1992-5-25','2019-11-8'),
+VALUES (25456879,'Antonio','Barrios','1981-7-9','2019-11-8');
+(28456321,'Lucia','Fernandez','1992-5-25','2019-11-8'),
 (27198354,'Leo','Paris','1985-6-20','2021-8-15'),
 (36987520,'Agustín','Casagne','1988-8-17','2021-8-15'),
 (33456215,'Franco','Caseros','1995-5-1','2021-8-15'),
 (30521369,'Dario','Ramirez','1989-7-20','2021-12-1'),
 (28856789,'Agustina','Medina','1991-3-8','2021-12-1'),
 (33128987,'Jorge','Perez','1988-2-19','2021-12-1');
+
+-- Para modificar el tipo de variable de la coliman
+ALTER TABLE cohorte MODIFY codigo VARCHAR(50);
+
+-- Para poder modificar una tabla con foreign keys 
+SHOW CREATE TABLE carrera;
+SET foreign_key_checks = 0;
+TRUNCATE TABLE carrera;
+SET foreign_key_checks = 1;
+
 
 #Se insertan valores en la tabla cohortes.
 INSERT INTO cohorte 
@@ -37,6 +45,28 @@ VALUES (1235,'FT-1235',1,1,'2020-2-1','2020-6-30'),
 (1244,'DS-1244',2,8,'2022-5-2',null),
 (1245,'FT-1245',1,2,'2022-5-2',null),
 (1246,'DS-1246',2,7,'2022-7-4',null);
+
+-- Para saber como son las variables de la table podemos usar
+
+DESCRIBE Henry.cohorte;
+
+-- al intentar correr el codigo me di cuenta q el caracter UNIQUE no permitia adicionar los registros
+
+SHOW CREATE TABLE cohorte;
+SET foreign_key_checks = 0;
+DROP TABLE cohorte;
+CREATE TABLE cohorte(
+	idCohorte INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	codigo VARCHAR(50),
+	idCarrera INT NOT NULL,
+	idInstructor INT NOT NULL,
+	fechaInicio DATE,
+	fechaFinalizacion DATE,
+	FOREIGN KEY (idCarrera) REFERENCES carrera(idCarrera),
+	FOREIGN KEY (idInstructor) REFERENCES instructor(idInstructor)
+);
+SET foreign_key_checks = 1;
+
 
 INSERT INTO cohorte (codigo, idCarrera, idInstructor, fechaInicio, fechaFinalizacion)
 VALUES ('FT-1235',1,1,'2020-2-1','2020-6-30');

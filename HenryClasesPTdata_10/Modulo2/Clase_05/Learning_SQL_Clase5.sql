@@ -26,9 +26,9 @@ CREATE TABLE instructor (
 
 CREATE TABLE cohorte(
 	idCohorte INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	codigo INT NOT NULL UNIQUE,
-	idCarrera INT NOT NULL UNIQUE,
-	idInstructor INT NOT NULL UNIQUE,
+	codigo INT NOT NULL,
+	idCarrera INT NOT NULL,
+	idInstructor INT NOT NULL,
 	fechaInicio DATE,
 	fechaFinalizacion DATE,
 	FOREIGN KEY (idCarrera) REFERENCES carrera(idCarrera),

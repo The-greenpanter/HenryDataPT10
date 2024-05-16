@@ -47,3 +47,38 @@ DELIMITER ;
 SET @totalOrdenes = 0;
 CALL ordenesPorFecha('2001-05-31', @totalOrdenes);
 SELECT @totalOrdenes;
+
+/*
+
+Crear una función que calcule el valor nominal de un margen bruto determinado por el usuario a partir del precio de lista de los productos.
+
+*/
+
+
+SET GLOBAL log_bin_trust_function_creators = 1;
+-- Esto es necesario para permitir la creación de funciones por parte de usuarios que no sean el administrador de la base de datos. 
+
+DROP FUNCTION IF EXISTS margenBrutoPorUsuario;
+
+DELIMITER $$
+
+CREATE FUNCTION  margenBrutoPorUsuario(precioVenta DECIMAL(15,3), costoProducto DECIMAL(9,2)) RETURNS DECIMAL(15,3) 
+-- Especifica el tipo de dato que devuelve la función
+
+-- DECIMAL(15, 3): En MySQL, DECIMAL es un tipo de dato numérico que se utiliza para almacenar valores con una precisión fija, en este caso (15, 3) significa que el número puede tener hasta 15 dígitos en total, de los cuales hasta 3 pueden estar después del punto decimal. 
+
+BEGIN
+
+    DECLARE margenBruto DECIMAL (15,3);
+
+    SET margenBruto = precioVenta * costoProducto;
+
+    RETURN margenBruto;
+
+END$$
+
+DELIMITER ;
+
+SELECT margenBrutoPorUsuario (100.50, 1.2);
+
+

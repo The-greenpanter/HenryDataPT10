@@ -81,4 +81,11 @@ DELIMITER ;
 
 SELECT margenBrutoPorUsuario (100.50, 1.2);
 
+/*
+Obtner un listado de productos en orden alfabético que muestre cuál debería ser el valor de precio de lista, si se quiere aplicar un margen bruto del 20%, utilizando la función creada en el punto 2, sobre el campo StandardCost. Mostrando tambien el campo ListPrice y la diferencia con el nuevo campo creado.
+*/
+
+/*Crear un procedimiento que reciba como parámetro una fecha desde y una hasta, y muestre un listado con los Id de los diez Clientes que más costo de transporte tienen entre esas fechas (campo Freight).*/
+
+/*Crear un procedimiento que permita realizar la insercción de datos en la tabla shipmethod.*/
 

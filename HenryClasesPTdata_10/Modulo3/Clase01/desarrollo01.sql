@@ -35,7 +35,7 @@ DELIMITER $$
 CREATE PROCEDURE ordenesPorFecha (IN fecha DATE, OUT totalOrdenes INT)
 
 BEGIN 
-    SELECT COUNT(*)
+    SELECT COUNT(DISTINCT purchaseorderdetail)
     INTO totalOrdenes
     FROM purchaseorderdetail
     WHERE DueDate = fecha;

@@ -100,9 +100,6 @@ ORDER BY Name;
 
 /*Crear un procedimiento que reciba como parámetro una fecha desde y una hasta, y muestre un listado con los Id de los diez Clientes que más costo de transporte tienen entre esas fechas (campo Freight).*/
 
-
-DROP PROCEDURE IF EXISTS expensierOrderPerDate;
-
 DELIMITER $$
 
 DROP PROCEDURE IF EXISTS expensierOrderPerDate;
@@ -130,3 +127,25 @@ CALL expensierOrderPerDate ('2001-06-01', '2001-07-30');
 
 /*Crear un procedimiento que permita realizar la insercción de datos en la tabla shipmethod.*/
 
+DROP PROCEDURE IF EXISTS cargarDatosShipMethod;
+
+DELIMITER //
+
+CREATE PROCEDURE cargarDatosShipMethod (IN nombre VARCHAR(30), IN ShipBase DOUBLE, IN ShipRate DOUBLE)
+BEGIN
+    -- Inserta un nuevo registro en la tabla 'shipmethod'.
+    -- Los valores se proporcionan a través de los parámetros de entrada y las funciones SQL.
+    INSERT INTO shipmethod (Name, ShipBase, ShipRate, rowguid, ModifiedDate)
+    VALUES (
+        nombre,             -- Valor para la columna 'Name', proporcionado por el parámetro 'nombre'.
+        ShipBase,           -- Valor para la columna 'ShipBase', proporcionado por el parámetro 'ShipBase'.
+        ShipRate,           -- Valor para la columna 'ShipRate', proporcionado por el parámetro 'ShipRate'.
+        UUID(),             -- Valor generado automáticamente para la columna 'rowguid' usando la función UUID().
+        NOW()               -- Valor generado automáticamente para la columna 'ModifiedDate' usando la función NOW().
+    );
+END //
+
+
+DELIMITER ;
+
+CALL cargarDatosShipMethod('TEST01', 1.1, 1.2);

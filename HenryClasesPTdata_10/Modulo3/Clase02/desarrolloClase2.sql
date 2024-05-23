@@ -1,8 +1,12 @@
 /*
 
-1. Obtener un listado contactos que hayan ordenado productos de la subcategoría "Mountain Bikes", entre los años 2000 y 2003, cuyo método de envío sea "CARGO TRANSPORT 5".<br>
+1. Obtener un listado contactos que hayan ordenado productos de la subcategoría "Mountain Bikes", entre los años 2000 y 2003, cuyo método de envío sea "CARGO TRANSPORT 5".
 
+*/
 
+porduct -> ProductSubcategoryID
+
+/*
 
 2. Obtener un listado contactos que hayan ordenado productos de la subcategoría "Mountain Bikes", entre los años 2000 y 2003 con la cantidad de productos adquiridos y ordenado por este valor, de forma descendente.<br>
 3. Obtener un listado de cual fue el volumen de compra (cantidad) por año y método de envío.<br> 

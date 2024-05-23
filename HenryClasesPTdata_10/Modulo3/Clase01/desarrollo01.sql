@@ -85,7 +85,48 @@ SELECT margenBrutoPorUsuario (100.50, 1.2);
 Obtner un listado de productos en orden alfabético que muestre cuál debería ser el valor de precio de lista, si se quiere aplicar un margen bruto del 20%, utilizando la función creada en el punto 2, sobre el campo StandardCost. Mostrando tambien el campo ListPrice y la diferencia con el nuevo campo creado.
 */
 
+SELECT 
+
+    Name,
+    ListPrice,
+    StandardCost,
+    margenBrutoPorUsuario(StandardCost, 1.2) AS recomendedPrice,
+    ListPrice - (margenBrutoPorUsuario(StandardCost, 1.2)) AS priceDiference
+FROM
+    product
+WHERE
+    ListPrice > 0 AND StandardCost > 0
+ORDER BY Name;
+
 /*Crear un procedimiento que reciba como parámetro una fecha desde y una hasta, y muestre un listado con los Id de los diez Clientes que más costo de transporte tienen entre esas fechas (campo Freight).*/
+
+
+DROP PROCEDURE IF EXISTS expensierOrderPerDate;
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS expensierOrderPerDate;
+
+DELIMITER $$
+
+CREATE PROCEDURE expensierOrderPerDate(IN fechaInit DATE, IN fechaEnd DATE)
+BEGIN 
+    SELECT
+        CustomerID,
+        SUM(Freight) AS shipmentCost
+    FROM 
+        salesorderheader
+    WHERE 
+        DATE(OrderDate) BETWEEN fechaInit AND fechaEnd
+    GROUP BY 
+        CustomerID
+    ORDER BY 
+        shipmentCost DESC;
+END $$
+
+DELIMITER ;
+
+CALL expensierOrderPerDate ('2001-06-01', '2001-07-30');
 
 /*Crear un procedimiento que permita realizar la insercción de datos en la tabla shipmethod.*/
 

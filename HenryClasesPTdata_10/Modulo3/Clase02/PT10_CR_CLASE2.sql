@@ -1,6 +1,6 @@
 -- 1. Obtener un listado contactos que hayan ordenado productos 
 -- de la subcategoría "Mountain Bikes", entre los años 2000 y 2003, cuyo método de 
--- envío sea "CARGO TRANSPORT 5".<br>
+-- envío sea "CARGO TRANSPORT 5"
 
 SELECT 
 	DISTINCT CONCAT(c.firstName, ' ', LastName)  AS nameContact,

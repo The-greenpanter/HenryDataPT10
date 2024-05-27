@@ -48,3 +48,7 @@ Al elegir el tipo de dato, considera el rango de valores que necesitas y el alma
 Usa TINYINT si el rango de valores es muy pequeño (-128 a 127 o 0 a 255). *** Para las edades ***
 Usa SMALLINT si el rango de valores es moderado (-32,768 a 32,767 o 0 a 65,535).
 Usa MEDIUMINT si el rango de valores es más amplio (-8,388,608 a 8,388,607 o 0 a 16,777,215).
+
+![alt text](67D1D163-49DD-4E1D-AD1B-CF455B2BB900.png)
+
+

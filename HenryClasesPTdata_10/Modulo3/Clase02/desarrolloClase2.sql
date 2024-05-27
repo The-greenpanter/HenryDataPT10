@@ -4,7 +4,25 @@
 
 */
 
-porduct -> ProductSubcategoryID
+
+contactos -> salesorderheader -> ProductSubcategoryID -> shipmethod
+
+SELECT
+
+    DISTINCT CONTACT (firstName, '', LastName) AS contactFullName,
+    c.ContactID,
+    c.EmailAddress
+    c.Phone
+FROM
+    CONTACT c
+INNER JOIN
+    salesorderheader soh
+ON 
+    c.ContactID = soh.ContactID
+INNER JOIN
+
+
+
 
 /*
 

@@ -20,7 +20,7 @@ INNER JOIN
 ON 
     c.ContactID = soh.ContactID
 INNER JOIN
-
+    productID p
 
 
 

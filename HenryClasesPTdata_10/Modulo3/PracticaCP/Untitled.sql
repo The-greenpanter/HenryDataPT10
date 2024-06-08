@@ -4,8 +4,10 @@ SHOW GLOBAL VARIABLES LIKE 'local_infile';
 SET GLOBAL local_infile = 1;
 
 SHOW GLOBAL VARIABLES LIKE 'local_infile';
-SET @@global.secure-file-priv = "/Users/the.greenpanter/Documents/Soyhenry/HenryClasesPTdata_10/Modulo3";
+SELECT @@global.secure_file_priv; -- = "/Users/the.greenpanter/Documents/Soyhenry/HenryClasesPTdata_10/Modulo3";
 -- SELECT @@global.secure_file_priv; -- Para ver la ruta de origen donde poner los csv. 
+SET OPT_LOCAL_INFILE=1 ;
+
 
 USE PracticaCP;
 LOAD DATA INFILE '/Users/the.greenpanter/Documents/Soyhenry/HenryClasesPTdata_10/Modulo3/PracticaCP/practica-m03/participantes-2.csv'

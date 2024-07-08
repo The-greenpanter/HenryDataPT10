@@ -1,1 +1,0 @@
-OPT_LOCAL_INFILE = 1;

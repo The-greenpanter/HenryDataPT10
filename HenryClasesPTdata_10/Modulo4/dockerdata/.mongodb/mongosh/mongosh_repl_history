@@ -1,5 +1,0 @@
-exit
-db.prueba.find()
-db.prueba.insert({'color': 'azul'})
-use prueba
-show dbs

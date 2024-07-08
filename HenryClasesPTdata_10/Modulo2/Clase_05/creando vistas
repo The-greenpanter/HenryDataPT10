@@ -1,5 +1,0 @@
-CREATE VIEW datosAlumnos AS  
-SELECT *
-FROM alumno
-
-ALTER VIEW datosAlumnos

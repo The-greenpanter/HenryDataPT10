@@ -1,0 +1,16 @@
+ 1048  sudo docker rm ubuntu
+ 1049  sudo docker prune ubuntu
+ 1050  sudo docker prune friendly_carver
+ 1051  sudo docker rm friendly_carver
+ 1052  sudo docker ps -a
+ 1053  sudo docker run hello-world
+ 1054  sudo docker ps -a
+ 1055  sudo docker prune f5fd91afa4d3
+ 1056  sudo docker container prune f5fd91afa4d3
+ 1057   docker run -it ubuntu bash
+ 1058  sudo docker run -d --name proxy -p 8081:80 nginx
+ 1059  sudo lsof -i :8081
+ 1060  sudo docker stop proxy\n
+ 1061  sudo docker stop proxy\n
+ 1062  sudo lsof -i :8081
+ 1063  sudo docker stop proxy\n

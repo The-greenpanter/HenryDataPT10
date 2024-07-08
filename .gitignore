@@ -1,0 +1,9 @@
+.DS_Store
+.venv
+.vscode
+Henry_venv
+Pipfile
+Pipfile.lock
+sup_11_04
+Hive
+dockerdata

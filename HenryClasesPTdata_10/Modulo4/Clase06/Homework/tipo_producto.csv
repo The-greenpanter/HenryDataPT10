@@ -1,12 +1,3 @@
-IdTipoProducto,TipoProducto
-1,Audio
-2,Bases
-3,Estucheria
-4,Gabinetes
-5,Gaming
-6,Grabacion
-7,Impresión
-8,Informatica
-9,Limpieza
-10,Sin Dato
-11,Varios
+version https://git-lfs.github.com/spec/v1
+oid sha256:4c8e9e379cb98361c0493ccbdd58f6764a918ebb5d3da1a7996f65ee82a37d6c
+size 162

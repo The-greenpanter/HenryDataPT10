@@ -1,0 +1,4 @@
+HenryClasesPTdata_10/Modulo5/ProyectoIntegrador/2[[:space:]]AirBnB/calendar.csv filter=lfs diff=lfs merge=lfs -text
+HenryClasesPTdata_10/Modulo5/ProyectoIntegrador/2[[:space:]]AirBnB/reviews.csv filter=lfs diff=lfs merge=lfs -text
+HenryClasesPTdata_10/Modulo5/ProyectoIntegrador/2[[:space:]]AirBnB/listings.csv filter=lfs diff=lfs merge=lfs -text
+HenryClasesPTdata_10/Modulo5/ProyectoIntegrador/1[[:space:]]Call[[:space:]]Center/Call_Center_1999_DataSet.csv filter=lfs diff=lfs merge=lfs -text

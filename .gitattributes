@@ -5,3 +5,7 @@ HenryClasesPTdata_10/Modulo5/ProyectoIntegrador/1CallCenter/Call_Center_1999_Dat
 HenryClasesPTdata_10/Modulo5/ProyectoIntegrador/1CallCenter/Call_Center_1999_DataSet.csv filter=lfs diff=lfs merge=lfs -text
 HenryClasesPTdata_10/Modulo5/ProyectoIntegrador/2AirBnB/calendar.csv filter=lfs diff=lfs merge=lfs -text
 HenryClasesPTdata_10/Modulo5/ProyectoIntegrador/2AirBnB/reviews.csv filter=lfs diff=lfs merge=lfs -text
+HenryClasesPTdata_10/Modulo5/ProyectoIntegrador/1CallCenter/Call_Center_1999_DataSet.csv filter=lfs diff=lfs merge=lfs -text
+HenryClasesPTdata_10/Modulo5/ProyectoIntegrador/2AirBnB/listings.csv filter=lfs diff=lfs merge=lfs -text
+HenryClasesPTdata_10/Modulo5/ProyectoIntegrador/2AirBnB/calendar.csv filter=lfs diff=lfs merge=lfs -text
+HenryClasesPTdata_10/Modulo5/ProyectoIntegrador/2AirBnB/reviews.csv filter=lfs diff=lfs merge=lfs -text
